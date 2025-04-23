@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  * {
+    font-family: "Archivo", serif;
+    @apply text-[12px] font-normal tracking-wider;
+  }
+
+  /* applicant pool and applicant result */
+  .bg-primary {
+    background-color: #0072dc !important;
+    color: #000;
+  }
+
+  /* applicant pool started */
+  .custom-checkbox:checked::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+    position: relative;
+    top: 4px;
+    left: 6px;
+  }
+
+  ::-webkit-scrollbar {
+    @apply bg-[#D9D9D9] w-2 rounded-xl;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#A8A8A8] rounded-xl;
+  }
+
+  /* applicant pool ended */
+
+  /* user dashboard started */
+
+  .custom-event-day {
+    @apply text-primary border border-primary;
+    border-radius: 50%;
+  }
+
+  .carouselSection {
+    position: relative !important;
+  }
+
+  .swiper-pagination-userDashboard {
+    position: absolute !important;
+    bottom: 35px !important;
+    left: 15px !important;
+    display: flex;
+    gap: 8px;
+  }
+
+  .pagination-userDashboard {
+    width: 9px;
+    height: 9px;
+    background-color: #5e5e5e;
+    border-radius: 50%;
+    margin: 0 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .pagination-active-userDashboard {
+    width: 33px;
+    height: 9px;
+    background-color: #ffffff;
+    border-radius: 12px;
+  }
+
+  /* user dashboard ended */
+
+  /* course summary */
+
+  .trending-slider {
+    width: 90%;
+    overflow: hidden;
+  }
+
+  .trending-slide-img {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trending-slide-img img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .trending-slider-control {
+    @apply relative flex items-center justify-center top-4;
+  }
+
+  .swiper-pagination-bullet {
+    @apply h-[10px] w-[10px];
+    margin: 5px 10px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #343434 !important;
+  }
+}
+
+.view-more-btn:hover {
+  background-color: rgba(26, 25, 25, 0.3);
+  transform: scale(1.05);
+}
+
+@media (max-width: 440px) {
+  .slide-content {
+    height: 300px;
+  }
+  .view-more-btn {
+    font-size: 8px;
+    padding: 8px;
+    right: 10px;
+  }
+  .carousel-heading,
+  .slide-title,
+  .slide-description,
+  .slide-meta {
+    padding-right: 10px;
+    left: 10px;
+  }
+  .carousel-heading {
+    top: 20px;
+  }
+  .slide-title {
+    top: 146px;
+  }
+  .slide-description {
+    top: 185px;
+  }
+  .slide-meta {
+    top: 239px;
+  }
+  .swiper-pagination {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .slide-title {
+    top: 126px;
+  }
+  .slide-description {
+    top: 165px;
+  }
+  .slide-meta {
+    top: 230px;
+  }
+}
+
+/* user dashboard ended */
+
+/* interview dashboard started */
+
+.pulse-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  overflow: visible;
+}
+
+.pulse-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+}
+
+.pulse-layer {
+  position: absolute;
+  border-radius: 50%;
+  animation: pulse 3s infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.expanding-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #0072dc;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 10;
+  animation: expand-border 4s ease-out infinite;
+  transform: translate(-50%, -50%) scale(0.1);
+}
+
+.pulse-layer.low {
+  width: 45%;
+  height: 45%;
+  background: linear-gradient(
+    318.5deg,
+    rgba(92, 154, 255, 0.57) 15%,
+    rgba(38, 88, 206, 0.82) 45%
+  );
+  z-index: -1;
+}
+
+.pulse-layer.medium {
+  width: 55%;
+  height: 55%;
+  background: linear-gradient(
+    318.5deg,
+    rgba(226, 175, 255, 1) 0%,
+    rgba(92, 162, 255, 0.63) 69%
+  );
+  z-index: -2;
+}
+
+.pulse-layer.high {
+  width: 65%;
+  height: 65%;
+  background: linear-gradient(
+    144.14deg,
+    rgba(231, 210, 255, 0.5) 15%,
+    rgba(179, 218, 255, 0.38) 40%
+  );
+  z-index: -3;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes expand-border {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* interview dashboard ended */
+
+/* course summary started */
+
+.grab {
+  cursor: grab;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* course summary ended */
+
+/* applicant pool started */
+
+table th:last-child,
+table td:last-child {
+  width: 150px;
+}
+
+.loading-rectangle {
+  width: 100%;
+  height: 14px;
+  background-color: #d6def0;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+/* applicant pool ended */
+
+/* course summary started */
+
+.loading-rectangle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.bg-gradient-border {
+  background: linear-gradient(to right, #002dbf, #4396f7, #ff9bd2, #002dbf);
+  background-size: 200% 100%;
+  animation: gradient-border 6s linear infinite;
+  display: inline-block;
+}
+
+/* course summary ended */
+
+/* after selection start */
+
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #007aff;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-radio-circle {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #007aff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -60%);
+  display: none;
+}
+
+.custom-radio:checked + .custom-radio-circle {
+  display: block;
+}
+
+.custom-radio:hover {
+  border-color: #0056cc;
+}
+
+.swiper-pagination-course {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 0 10px 29px;
+  width: 100%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.gradient-text {
+  background: linear-gradient(170deg, #154dd1, #5c9aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* after selection ended */
+
+.monaco-editor-background,
+.monaco-editor {
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+.monaco-editor .margin {
+  background-color: transparent !important;
+}
+
+.monaco-editor .current-line {
+  background-color: #0f0f36 !important;
+}
+
+.active-line-highlight {
+  background-color: #0f0f36 !important;
+}
+
+.monaco-editor {
+  font-family: "regular", Consolas, "Courier New", monospace !important;
+}
+
+.monaco-editor .mtk {
+  font-family: "regular", Consolas, "Courier New", monospace !important;
+}
+
+/* practice simulation question started */
+
+.cutout-box {
+  position: relative;
+  border-radius: 30%;
+}
+
+.cutout-box::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 65px;
+  height: 65px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 0 9999px #000;
+}
+
+/* practice simulation question ended */
+
+/* ai interview started */
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ai interview end */
+
+/* candidate profile started */
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 5s linear infinite;
+}
+
+/* candidate profile ends */
+
+@keyframes rotatePetals {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-petals {
+  animation: rotatePetals 10s linear infinite;
+}
